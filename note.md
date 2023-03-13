@@ -20,11 +20,11 @@ Vue.js devtools (크롬 개발자 도구) 를 설치한다.
 ### MVVM 모델에서의 Vue
 Vue 는 무엇인가?
 MVVM 패턴의 뷰모델(ViewModel) 레이어에 해당하는 화면(View)단 라이브러리  
-View(DOM) ---> DOM Listeners(Vue) ---> Model(Plain JavaScript Objects)  
-View(DOM) <--- Data Bindings(Vue) <--- Model(Plain Javascript Objects)  
+View(DOM) → DOM Listeners(Vue) → Model(Plain JavaScript Objects)  
+View(DOM) ← Data Bindings(Vue) ← Model(Plain Javascript Objects)  
 
 ### 기존 웹 개발 방식(HTML, Javascript)
-```
+```js
 var div = document.querySelector('#app');
 var str = 'hello world';
 div.innetHTML = str;
@@ -33,13 +33,13 @@ str = 'hello world!!!'; // 여기까지 작성된 코드는 str 이 초기화 �
 
 ### Reactivity 구현
 뷰의 핵심 리액티비티를 재현해보자.
-```
+```js
 // 객체의 동작을 재정의하는 API 다.
 Object.defineProperty(대상 객체, 객체의 속성, {
     // 정의할 내용
 });
 ```
-```
+```js
 // 실제 사용
 Object.defineProperty(viewModel, 'str', {
     // 속성에 접근했을 때의 동작을 정의
@@ -58,7 +58,7 @@ viewModel.str = 10; // 할당 10 그리고 화면이 바뀌게된다.
 ```
 
 ### Reactivity 코드 라이브러리화 하기
-```
+```js
 var div = document.querySelector('#app');
 var viewModel = {};
 
